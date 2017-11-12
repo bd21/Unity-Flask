@@ -29,7 +29,7 @@ def show_game_info(gameID):
         requestURL = BASE_GAME_URL + str(gameID)
         rawHTML = requests.get(requestURL)
         data = rawHTML.text
-        soup = BeautifulSoup(data)
+        soup = BeautifulSoup(data, "lxml")
 
         title = soup.find_all('h3', {'class':"mb10 title"})[0].text
         gameLink = soup.find('a').attrs['href']
@@ -41,7 +41,7 @@ def show_game_info(gameID):
         for i in range(1, len(platforms)):
             platform += ", " + platforms[i].text
         description = soup.find_all('div', {'class':'mb15 description clear'})[0].text
-        description = description.replace(' Read more', '')
+        description = description.replace('Read more', '')
         pictureURL = soup.find_all('img', {'class':'ic'})[0].attrs['src']
 
         # app.logger.info("title:" + title);
@@ -74,14 +74,14 @@ def set_cookies(resp):
         cookieOrder = generate_random_list()
         resp.set_cookie('listOrder', cookieOrder)
         resp.set_cookie('nextToShow', "0")
-    app.logger.info(request.cookies.get('listOrder'))
+    # app.logger.info(request.cookies.get('listOrder'))
 
 # generates a csv of randomly shuffled integers from 0 to GAME_LIST_LENGTH
 def generate_random_list():
     array = []
     for i in range(0, GAME_LIST_LENGTH):
         array.append(i)
-    random.shuffle(array)
+    # random.shuffle(array)
 
     result = json.dumps(array)
     return result
