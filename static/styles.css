@@ -1,0 +1,52 @@
+.container-fluid, html, body, #centerBox, middle {
+    height: 100%;
+}
+#header {
+    text-align: center;
+    height: 10%;
+    background-color: black;
+    color: white;
+}
+
+h1 {
+    font: 72pt bold;
+}
+
+#middle {
+    height: 70%;
+}
+
+#titleRow {
+    height: 10%;
+}
+
+#pictureRow {
+    height: 45%;
+}
+
+#bottomRow {
+    height: 20%;
+}
+
+img {
+    height: 100%;
+}
+.bullets {
+    font-size: 20pt;
+    padding-top:auto;
+    padding-bottom:auto;
+    margin-left: 15%;
+}
+
+#centerBox h2 {
+    padding-top:30px;
+    padding-bottom:30px;
+    font: 32pt bold;
+    margin-bottom: auto;
+    margin-top: auto;
+}
+
+#bottomRow p {
+    margin-top: 1em;
+    font-size: 20pt;
+}
