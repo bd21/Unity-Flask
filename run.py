@@ -36,7 +36,7 @@ def show_game_info(gameID):
     data = rawHTML.text
 
     # extract data from html
-    soup = BeautifulSoup(data, "lxml")
+    soup = BeautifulSoup(data)
     title = soup.find_all('h3', {'class':"mb10 title"})[0].text
     gameLink = soup.find('a').attrs['href']
     developer = soup.find_all('a', {'class':'developer'})[0].text
